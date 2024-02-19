@@ -25,6 +25,7 @@ This application allows you to explore and discover movies from the famous Ghibl
 * Smart search: Easily find movies using the search feature.
 * Personal library: Save your favorite movies to your own personal library for later viewing.
 * Immersive experience: Enjoy an engaging visual experience with high-quality images and a modern user interface.
+* Search for information on the internet with a single click.
 
 ## Technologies Used:
 
