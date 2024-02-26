@@ -1,6 +1,5 @@
 package com.manugtdev.ghibliapp.presentation.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -45,8 +44,6 @@ fun FilmItem(film: Film, onItemClick: (Film) -> Unit) {
             .clickable {
                 onItemClick(film)
             }
-            .background(Color(0xFF1F1F1F))
-            .border(1.dp, Color(0xFF292929), shape = RoundedCornerShape(20.dp))
     ) {
         AsyncImage(
             modifier = Modifier
@@ -102,8 +99,9 @@ fun FilmItem(film: Film, onItemClick: (Film) -> Unit) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
-            Text(modifier = Modifier
-                .width(250.dp),
+            Text(
+                modifier = Modifier
+                    .width(220.dp),
                 text = film.description,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -136,7 +134,17 @@ fun FilmItem(film: Film, onItemClick: (Film) -> Unit) {
             }
 
         }
-    }
 
+
+    }
+    Row(
+        modifier = Modifier
+            .padding(start = 15.dp, end = 15.dp)
+            .border(1.dp, Color(0xFF6D6D6D))
+            .fillMaxWidth()
+            .height(1.dp)
+    ) {
+
+    }
 
 }

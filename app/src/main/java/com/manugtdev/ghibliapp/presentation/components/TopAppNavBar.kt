@@ -29,7 +29,12 @@ import com.manugtdev.ghibliapp.presentation.navigation.Routes
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
-fun TopAppNavBar(navController: NavController, filmName: String, onClick: () -> Unit) {
+fun TopAppNavBar(
+    navController: NavController,
+    isFavorite: Boolean,
+    filmName: String,
+    onClick: () -> Unit
+) {
 
     val context = LocalContext.current
     val launcher = rememberLauncherForActivityResult(
@@ -67,7 +72,10 @@ fun TopAppNavBar(navController: NavController, filmName: String, onClick: () -> 
                             .makeText(context, "Film added to your libray", Toast.LENGTH_SHORT)
                             .show()
                     },
-                imageVector = ImageVector.vectorResource(R.drawable.ic_bookmark),
+                imageVector = ImageVector.vectorResource(
+                    if (isFavorite) R.drawable.ic_bookmark_red
+                    else R.drawable.ic_bookmark
+                ),
                 tint = Color(0xFF03A9F4),
                 contentDescription = "bookmark"
             )

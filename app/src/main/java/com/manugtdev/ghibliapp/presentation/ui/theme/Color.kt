@@ -16,3 +16,7 @@ val Purple2 = Color(0xFF756DCE)
 val Purple3 = Color(0xFF5B57B6)
 val Purple4 = Color(0xFF42429D)
 val Purple5 = Color(0xFF282C84)
+
+val white = Color(0xFFFFFFFF)
+val black = Color(0xFF000000)
+val grey = Color(0xFF696969)

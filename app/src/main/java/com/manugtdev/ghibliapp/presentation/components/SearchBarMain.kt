@@ -3,6 +3,7 @@ package com.manugtdev.ghibliapp.presentation.components
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -17,7 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.manugtdev.ghibliapp.R
@@ -26,14 +29,17 @@ import com.manugtdev.ghibliapp.R
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
 fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
-
+    val isDarkMode = isSystemInDarkTheme()
 
     TextField(
         modifier = Modifier
             .height(50.dp)
             .fillMaxWidth()
-            .border(1.dp, Color(0xFF242424),
-                shape = RoundedCornerShape(15.dp)),
+            .border(
+                1.dp, Color(0xFF9E9E9E),
+                shape = RoundedCornerShape(15.dp)
+            ),
+        textStyle = TextStyle(color = if (isDarkMode)Color.White else Color.Black),
         maxLines = 1,
         value = searchText,
         placeholder = { Text(text = "Search...") },
@@ -50,7 +56,8 @@ fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
         ),
         shape = RoundedCornerShape(15.dp),
         colors = TextFieldDefaults.textFieldColors(
-            containerColor = Color(0xFF1F1F1F),
+            containerColor = if (isDarkMode)
+                colorResource(id = R.color.almost_back) else Color(0xFFCCCCCC),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent

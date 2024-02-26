@@ -1,7 +1,9 @@
 package com.manugtdev.ghibliapp.presentation.screens.home
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresExtension
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,12 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.manugtdev.ghibliapp.R
 import com.manugtdev.ghibliapp.presentation.components.LazyColumnFilms
 import com.manugtdev.ghibliapp.presentation.components.SearchBarMain
 import com.manugtdev.ghibliapp.presentation.navigation.Routes
@@ -28,6 +32,7 @@ import com.manugtdev.ghibliapp.presentation.ui.theme.Nunito
 import com.manugtdev.ghibliapp.presentation.viewmodels.FilmsViewModel
 
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
 fun HomeScreen(viewModel: FilmsViewModel, navigationControllerGeneral: NavHostController) {
@@ -39,6 +44,9 @@ fun HomeScreen(viewModel: FilmsViewModel, navigationControllerGeneral: NavHostCo
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(if (!isDarkMode) Color(0xFFFFFFFF)
+            else colorResource(id = R.color.almost_back)
+            )
     ) {
 
         Row(

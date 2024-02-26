@@ -12,12 +12,12 @@ data class Page(
 val pages = listOf(
     Page(
         title = "Studio Ghibli App",
-        description = "The best way to see all the important information about Studio Ghibli",
+        description = "The best way to see all the important information about Studio Ghibli.",
         image = R.drawable.onboarding1
     ),
     Page(
         title = "A powerful search engine",
-        description = "No matter what film it is, you can search for it with our powerful search engine",
+        description = "No matter what film it is, you can search for it with our powerful search engine.",
         image = R.drawable.onboarding2
     ),
     Page(

@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -41,7 +40,6 @@ import com.manugtdev.ghibliapp.presentation.viewmodels.LibraryViewModel
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun FilmItemLibrary(film: Film, viewModel: LibraryViewModel, onItemClick: (Film) -> Unit) {
-    val isDarkMode = isSystemInDarkTheme()
     val context = LocalContext.current
     val showDialog = remember { mutableStateOf(false) }
 
@@ -112,8 +110,7 @@ fun FilmItemLibrary(film: Film, viewModel: LibraryViewModel, onItemClick: (Film)
                     .fillMaxWidth(),
                 text = film.title,
                 fontFamily = Nunito,
-                fontWeight = FontWeight.Bold,
-                color = if (isDarkMode) Color.White else Color.Black
+                fontWeight = FontWeight.Bold
             )
 
             Spacer(modifier = Modifier.padding(top = 5.dp))
@@ -124,8 +121,7 @@ fun FilmItemLibrary(film: Film, viewModel: LibraryViewModel, onItemClick: (Film)
                 text = film.description,
                 fontFamily = Nunito,
                 maxLines = 4,
-                overflow = TextOverflow.Ellipsis,
-                color = if (isDarkMode) Color.White else Color.Black
+                overflow = TextOverflow.Ellipsis
             )
 
             Spacer(modifier = Modifier.padding(top = 10.dp))
@@ -146,8 +142,7 @@ fun FilmItemLibrary(film: Film, viewModel: LibraryViewModel, onItemClick: (Film)
                     fontFamily = Nunito,
                     maxLines = 4,
                     fontWeight = FontWeight.Bold,
-                    overflow = TextOverflow.Ellipsis,
-                    color = if (isDarkMode) Color.White else Color.Black
+                    overflow = TextOverflow.Ellipsis
                 )
             }
         }

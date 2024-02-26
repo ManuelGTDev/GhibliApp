@@ -30,7 +30,6 @@ class LibraryViewModel @Inject constructor(
     }
 
     private fun showSavedFilms() {
-
         getFilmsLocalUseCase().onEach { result ->
             when (result) {
 

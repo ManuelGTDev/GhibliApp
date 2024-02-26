@@ -1,7 +1,6 @@
 package com.manugtdev.ghibliapp.presentation.screens.onboarding
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -29,7 +27,6 @@ fun OnBoardingPage(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top
     ) {
-        val isDarkMode = isSystemInDarkTheme()
 
         Image(
             modifier = Modifier
@@ -40,7 +37,7 @@ fun OnBoardingPage(
             contentScale = ContentScale.Crop
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
         Text(
             modifier = Modifier
@@ -48,8 +45,7 @@ fun OnBoardingPage(
                 .padding(start = 20.dp),
             text = page.title,
             fontFamily = Nunito,
-            style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
-            color = if (isDarkMode) Color.White else Color.Black
+            style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold)
         )
         Text(
             modifier = Modifier
@@ -57,8 +53,7 @@ fun OnBoardingPage(
                 .padding(start = 20.dp),
             text = page.description,
             fontFamily = Nunito,
-            style = MaterialTheme.typography.bodyLarge,
-            color = if (isDarkMode) Color.White else Color.Black
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }

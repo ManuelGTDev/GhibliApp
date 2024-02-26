@@ -10,27 +10,25 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
-import com.manugtdev.newsapp.ui.theme.Pink40
-import com.manugtdev.newsapp.ui.theme.Pink80
-import com.manugtdev.newsapp.ui.theme.Purple40
-import com.manugtdev.newsapp.ui.theme.Purple80
-import com.manugtdev.newsapp.ui.theme.PurpleGrey40
-import com.manugtdev.newsapp.ui.theme.PurpleGrey80
+import com.manugtdev.ghibliapp.R
+import com.manugtdev.newsapp.ui.theme.black
+import com.manugtdev.newsapp.ui.theme.grey
+import com.manugtdev.newsapp.ui.theme.white
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = white,
+    secondary = black,
+    tertiary = grey
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = white,
+    secondary = black,
+    tertiary = grey
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -50,6 +48,8 @@ fun GhibliAppTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val context1 = LocalContext.current
+
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
@@ -63,7 +63,7 @@ fun GhibliAppTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = ContextCompat.getColor(context1, R.color.blue_icons)
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

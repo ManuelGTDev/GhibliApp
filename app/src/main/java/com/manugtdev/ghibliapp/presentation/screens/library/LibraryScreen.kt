@@ -2,7 +2,6 @@ package com.manugtdev.ghibliapp.presentation.screens.library
 
 import android.os.Build
 import androidx.annotation.RequiresExtension
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +11,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -30,7 +28,6 @@ fun LibraryScreen(
     viewModel: LibraryViewModel
 ) {
     val films = viewModel.filmsState.value
-    val isDarkMode = isSystemInDarkTheme()
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
@@ -41,8 +38,7 @@ fun LibraryScreen(
             textAlign = TextAlign.Center,
             fontSize = 32.sp,
             fontFamily = Nunito,
-            fontWeight = FontWeight.Bold,
-            color = if (isDarkMode) Color.White else Color.Black
+            fontWeight = FontWeight.Bold
         )
 
         LazyColumn(modifier = Modifier.fillMaxSize()) {
