@@ -37,7 +37,7 @@ import com.manugtdev.ghibliapp.presentation.viewmodels.FilmsViewModel
 @Composable
 fun HomeScreen(viewModel: FilmsViewModel, navigationControllerGeneral: NavHostController) {
 
-    val state = viewModel.state.value
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val isDarkMode = isSystemInDarkTheme()
     val searchText by viewModel.searchText.collectAsStateWithLifecycle()
 
@@ -45,10 +45,8 @@ fun HomeScreen(viewModel: FilmsViewModel, navigationControllerGeneral: NavHostCo
         modifier = Modifier
             .fillMaxSize()
             .background(if (!isDarkMode) Color(0xFFFFFFFF)
-            else colorResource(id = R.color.almost_back)
-            )
+            else colorResource(id = R.color.almost_back))
     ) {
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()

@@ -62,7 +62,11 @@ fun FilmItem(film: Film, onItemClick: (Film) -> Unit) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
+                modifier = Modifier
+                    .width(230.dp),
                 text = film.title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 fontFamily = Nunito,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,

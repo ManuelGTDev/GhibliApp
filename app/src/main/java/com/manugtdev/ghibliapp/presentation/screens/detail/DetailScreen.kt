@@ -44,7 +44,7 @@ import com.manugtdev.ghibliapp.presentation.viewmodels.DetailViewModel
 @Composable
 fun DetailScreen(viewModel: DetailViewModel, navController: NavController) {
 
-    val state = viewModel.state.value
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
     val isFavorite by viewModel.isFavorite.collectAsStateWithLifecycle()
 

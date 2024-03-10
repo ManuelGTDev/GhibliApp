@@ -36,7 +36,7 @@ fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
             .height(50.dp)
             .fillMaxWidth()
             .border(
-                1.dp, Color(0xFF9E9E9E),
+                1.dp, Color(0xFFDDDDDD),
                 shape = RoundedCornerShape(15.dp)
             ),
         textStyle = TextStyle(color = if (isDarkMode)Color.White else Color.Black),
@@ -57,7 +57,7 @@ fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
         shape = RoundedCornerShape(15.dp),
         colors = TextFieldDefaults.textFieldColors(
             containerColor = if (isDarkMode)
-                colorResource(id = R.color.almost_back) else Color(0xFFCCCCCC),
+                colorResource(id = R.color.almost_back) else Color(0xFFDFDFDF),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent

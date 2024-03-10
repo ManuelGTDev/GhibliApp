@@ -2,8 +2,6 @@ package com.manugtdev.ghibliapp.presentation.viewmodels
 
 import android.os.Build
 import androidx.annotation.RequiresExtension
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.manugtdev.ghibliapp.common.Resource
@@ -23,15 +21,11 @@ class FilmsViewModel @Inject constructor(
     private val getFilmsUseCase: GetFilmsUseCase
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(FilmState())
-    val state: State<FilmState> = _state
-
+    private val _state = MutableStateFlow(FilmState())
+    val state = _state.asStateFlow()
 
     private val _searchText = MutableStateFlow("")
     val searchText = _searchText.asStateFlow()
-
-    private val _isSearching = MutableStateFlow(false)
-    val isSearching = _isSearching.asStateFlow()
 
     init {
         getFilms()

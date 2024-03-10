@@ -82,9 +82,12 @@ class DetailViewModel @Inject constructor(
 
                 is Resource.Success -> {
                     _filmsState.value = FilmState(films = result.data ?: emptyList())
-                    _filmsState.value.films.find { _state.value.film.id == _filmId.value }?.apply {
-                        _isFavorite.value = true
-                    }.run { _isFavorite.value = false }
+
+                    _filmsState.value.films.forEach{film ->
+                        if (_state.value.film.id == _filmId.value && film.id == _filmId.value) {
+                            _isFavorite.value = true
+                        }
+                    }
                 }
 
                 is Resource.Error -> {

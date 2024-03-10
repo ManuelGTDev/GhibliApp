@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,7 +38,6 @@ fun TopAppNavBar(
     filmName: String,
     onClick: () -> Unit
 ) {
-
     val context = LocalContext.current
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
@@ -72,10 +74,8 @@ fun TopAppNavBar(
                             .makeText(context, "Film added to your libray", Toast.LENGTH_SHORT)
                             .show()
                     },
-                imageVector = ImageVector.vectorResource(
-                    if (isFavorite) R.drawable.ic_bookmark_red
-                    else R.drawable.ic_bookmark
-                ),
+                imageVector = if (isFavorite) Icons.Default.Bookmark
+                else Icons.Default.BookmarkBorder,
                 tint = Color(0xFF03A9F4),
                 contentDescription = "bookmark"
             )
