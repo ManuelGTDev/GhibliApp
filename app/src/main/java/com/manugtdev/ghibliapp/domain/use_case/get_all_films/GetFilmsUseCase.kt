@@ -30,5 +30,4 @@ class GetFilmsUseCase @Inject constructor(
         }
     }
 
-
 }

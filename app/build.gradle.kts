@@ -90,6 +90,10 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.45")
     kapt("androidx.hilt:hilt-compiler:1.1.0")
 
+    //Hilt Testing
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.40.5")
+    androidTestAnnotationProcessor ("com.google.dagger:hilt-android-compiler:2.40.5")
+
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

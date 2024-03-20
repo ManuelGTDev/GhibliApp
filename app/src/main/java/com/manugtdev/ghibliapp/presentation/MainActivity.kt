@@ -9,7 +9,9 @@ import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -30,6 +32,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
+            Text(text = "HOLA", Modifier.testTag("TEXTO1"))
+            
             // Obtener SharedPreferences
             //Se puede usar DataStore pero por sencillez usamos sharedPreferences
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)

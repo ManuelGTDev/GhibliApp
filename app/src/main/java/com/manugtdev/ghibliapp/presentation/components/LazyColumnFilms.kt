@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import com.manugtdev.ghibliapp.domain.model.Film
 
 @Composable
@@ -14,7 +15,7 @@ fun LazyColumnFilms(
     modifier: Modifier = Modifier,
     onClick: (Film) -> Unit
 ) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+    LazyColumn(modifier = Modifier.fillMaxSize().testTag("lazyColumnFilms")) {
         if (isLoading) {
             items(3) {
                 ShimmerListItem()

@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
@@ -33,6 +34,7 @@ fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
 
     TextField(
         modifier = Modifier
+            .testTag("searchBar")
             .height(50.dp)
             .fillMaxWidth()
             .border(
@@ -57,7 +59,7 @@ fun SearchBarMain(searchText: String, onValueChange: (String) -> Unit) {
         shape = RoundedCornerShape(15.dp),
         colors = TextFieldDefaults.textFieldColors(
             containerColor = if (isDarkMode)
-                colorResource(id = R.color.almost_back) else Color(0xFFDFDFDF),
+                colorResource(id = R.color.almost_back) else Color(0xFFD5D5D5),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent
